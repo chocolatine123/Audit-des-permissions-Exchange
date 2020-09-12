@@ -1,4 +1,4 @@
-# Audit des permissions déléguées par les utilisateurs sous Exchange
+# Audit des permissions sous Exchange
 Prérequis :
 
 1)	Nécessite Microsoft Exchange Web Services Managed API 1.2 ou versions supérieures.
@@ -20,9 +20,7 @@ Ce script récupère les informations sur les administrateurs Exchange ainsi que
 Venons-en à présent aux droits qu’un utilisateur délègue à un autre, comme par exemple la lecture de son calendrier ou l’accès total à sa boite de réception, que l’on appellera ‘Droits Utilisateurs’. Bien évidemment, un simple utilisateur n’a pas accès à son Security Descriptor et ne peut par conséquent pas le modifier. Il faut savoir qu’une boite aux lettres est composée de plusieurs dossier (Boite de réception, d’envoi, dossier public, calendrier...) et dans le cas de délégation de droits par un utilisateur, une ACL est créée sur le dossier en question. S’il n’existe aucune commande pour vérifier ces droits, Microsoft a publié dernièrement un script dont on se servira pour les récupérer. Cependant, un membre d’Organization Managment’ n’a accès qu’au haut de la banque d’information. Il faudra de plus posséder le rôle Application Impersonation, présent dans le groupe Hygiène Management pour pouvoir exécuter ce script.
 
 Les autres prérequis sont les suivants :
-
 •	Télécharger le script Get-MailboxFolderPermissionEWS.ps1 qui nécessite Microsoft Exchange Web Services Managed API 1.2 ou toute version supérieure.
-
 •	Installer les Outils d’administration de serveur distant pour Windows 10
 
 Enfin, l’image ci-jointe montre l’exécution de cet outil, avec en haut à gauche l’exécution du script, en bas le répertoire de sortie et le rendu final en HTML à droite.
