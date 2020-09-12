@@ -23,5 +23,5 @@ Les autres prérequis sont les suivants :
 - Télécharger le script Get-MailboxFolderPermissionEWS.ps1 qui nécessite Microsoft Exchange Web Services Managed API 1.2 ou toute version supérieure.
 -	Installer les Outils d’administration de serveur distant pour Windows 10
 
-Enfin, l’image ci-dessous nous montre l’exécution de cet outil, avec en haut à gauche l’exécution du script, en bas le répertoire de sortie et le rendu final en HTML à droite.
+Enfin, l’image ci-jointe montre l’exécution de cet outil, avec en haut à gauche l’exécution du script, en bas le répertoire de sortie et le rendu final en HTML à droite.
 
