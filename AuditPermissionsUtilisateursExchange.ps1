@@ -21,9 +21,6 @@ $mois = $date.Month
 $an = $date.Year
 $jour = $date.Day
 
-##Pour les tests
-$dossier = "C:\Users\Public\Documents"
-$ex = "bai-v-exch-03"
 
 
 ################ Importation des modules nécessaires ################
