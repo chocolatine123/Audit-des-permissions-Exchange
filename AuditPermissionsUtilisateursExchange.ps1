@@ -15,6 +15,7 @@
 ################ Initialisation des variables ################
 Write-Host "Initialisation des variables" -BackgroundColor Red
 $dossier = Read-Host "Output Dir "
+$dom = Read-Host "Entrer le nom de votre domaine en majuscule"
 $ex = Read-Host "Entrer le nom de votre serveur Exchange "
 $date = Get-Date
 $mois = $date.Month
@@ -143,14 +144,14 @@ Get-Content .\temp-droits-6.csv | Where-Object {$_ -notmatch "EXCH\\Organization
 Get-Content .\temp-droits-7.csv | Where-Object {$_ -notmatch "EXCH\\Administrators"} |Out-File .\temp-droits-8.csv
 
 ##Idem avec les groupes de gestions des serveurs Exchange
-Get-Content .\temp-droits-8.csv | Where-Object {$_ -notmatch "EXCH\\Exchange Servers"} |Out-File .\temp-droits-9.csv
-Get-Content .\temp-droits-9.csv | Where-Object {$_ -notmatch "EXCH\\Exchange Trusted Subsystem"} |Out-File .\temp-droits-10.csv
-Get-Content .\temp-droits-10.csv | Where-Object {$_ -notmatch "EXCH\\Managed Availability Servers"} |Out-File .\temp-droits-11.csv
+Get-Content .\temp-droits-8.csv | Where-Object {$_ -notmatch "$dom\\Exchange Servers"} |Out-File .\temp-droits-9.csv
+Get-Content .\temp-droits-9.csv | Where-Object {$_ -notmatch "$dom\\Exchange Trusted Subsystem"} |Out-File .\temp-droits-10.csv
+Get-Content .\temp-droits-10.csv | Where-Object {$_ -notmatch "$dom\\Managed Availability Servers"} |Out-File .\temp-droits-11.csv
 
 ##Idem avec les dossiers publiques, Delegated Setup et Discovery Management
-Get-Content .\temp-droits-11.csv | Where-Object {$_ -notmatch "EXCH\\Public Folder Management"} |Out-File .\temp-droits-12.csv
-Get-Content .\temp-droits-12.csv | Where-Object {$_ -notmatch "EXCH\\Delegated Setup"} |Out-File .\temp-droits-13.csv
-Get-Content .\temp-droits-13.csv | Where-Object {$_ -notmatch "EXCH\\Discovery Management"} |Out-File .\temp-droits-14.csv
+Get-Content .\temp-droits-11.csv | Where-Object {$_ -notmatch "$dom\\Public Folder Management"} |Out-File .\temp-droits-12.csv
+Get-Content .\temp-droits-12.csv | Where-Object {$_ -notmatch "$dom\\Delegated Setup"} |Out-File .\temp-droits-13.csv
+Get-Content .\temp-droits-13.csv | Where-Object {$_ -notmatch "$dom\\Discovery Management"} |Out-File .\temp-droits-14.csv
 
 Get-Content .\temp-droits-14.csv | Select -Unique >  Droits-Admin-Def.csv
 Remove-Item -Path .\temp-*
