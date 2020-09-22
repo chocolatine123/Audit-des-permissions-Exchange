@@ -138,10 +138,10 @@ Remove-Item -Path .\temp-droits-4-*.csv
 
 ####### Suppression des groupse d'administration #######
 ## Sur le même principe que précédement, on dégage tous les groupes d'administration AD et Exchange
-Get-Content .\temp-droits-4.csv | Where-Object {$_ -notmatch "EXCH\\Domain Admins"} |Out-File .\temp-droits-5.csv
-Get-Content .\temp-droits-5.csv | Where-Object {$_ -notmatch "EXCH\\Enterprise Admins"} |Out-File .\temp-droits-6.csv
-Get-Content .\temp-droits-6.csv | Where-Object {$_ -notmatch "EXCH\\Organization Management"} |Out-File .\temp-droits-7.csv
-Get-Content .\temp-droits-7.csv | Where-Object {$_ -notmatch "EXCH\\Administrators"} |Out-File .\temp-droits-8.csv
+Get-Content .\temp-droits-4.csv | Where-Object {$_ -notmatch "$dom\\Domain Admins"} |Out-File .\temp-droits-5.csv
+Get-Content .\temp-droits-5.csv | Where-Object {$_ -notmatch "$dom\\Enterprise Admins"} |Out-File .\temp-droits-6.csv
+Get-Content .\temp-droits-6.csv | Where-Object {$_ -notmatch "$dom\\Organization Management"} |Out-File .\temp-droits-7.csv
+Get-Content .\temp-droits-7.csv | Where-Object {$_ -notmatch "$dom\\Administrators"} |Out-File .\temp-droits-8.csv
 
 ##Idem avec les groupes de gestions des serveurs Exchange
 Get-Content .\temp-droits-8.csv | Where-Object {$_ -notmatch "$dom\\Exchange Servers"} |Out-File .\temp-droits-9.csv
